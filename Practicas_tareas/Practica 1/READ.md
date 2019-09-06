@@ -14,11 +14,12 @@ Semestre: AGOSTO- DICIEMBRE 2019**
 
 # Introducción
 
-introduccion
+En este presente archivo se deriva de la explicacion de diferentes clases en el Instituto Tecnologico de Tijuana de la materia Mineria de Datos
+lo cual pude desarollar mis habilidades y aplicar mis conocimientos aprendidos durante el periodo
 
 ## Explicación 
 
-Explicacion
+
 
 ## Codigo
 ```scala
