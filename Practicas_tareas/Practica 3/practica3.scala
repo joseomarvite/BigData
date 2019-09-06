@@ -173,6 +173,7 @@ def funcion5 (n: Double): Double =
         return(a+b)
     }
 }
+funcion5(9)
 
 
 
