@@ -1,73 +1,103 @@
-//Primer Algoritmo
+// Primer Algoritmo
+// En este primer algortimo se agrego una funcion que despues de haber efectuado
+// las operaciones correspondientes la funcion nos dara un resultado (return)
+// este debe de ser un valor entero (Int)
 def funcion (n: Int): Int = 
-{
+{   
+// Si el numero ingresado en la funcion es menor a 2, el numero ingresado sera regresado
     if (n<2)
     {
         return n
-
     }
+// En todo caso, la funcion hara una serie de sumas, y regresa el resultado
     else
     {
         return funcion(n-1) + funcion(n-2)
     }
 }
 
-funcion(5)
+funcion(9)
 
-//Segundo Algoritmo
+// Segundo Algoritmo
+// En este segundo algortimo se agrego una funcion que despues de haber efectuado
+// las operaciones correspondientes la funcion nos dara un resultado (return)
+// este debe de ser un valor entero con puntos decimales (Double)
 def funcion1(n: Double): Double =
 {
+//Si el numero ingresado en la funcion es menor a 2, el numero ingresado sera regresado
     if (n<2)
     {
         return n
     }
+// En todo caso, se hara lo siguiente
     else
     {
+// La formula matematica es mas extensa, pero yo decidi hacerla en partes paqueñas
+// para luego unirla en la variable (j) 
         var p = ((1+(Math.sqrt(5)))/2)
         var a = Math.pow(p,n)
         var b = Math.pow((1-p),n)
         var c = Math.sqrt(5)
         var j = ((a-(b)))/(c)
+// EL resultado de (j) sera el resultado al regresar (return)
         return(j)
     }
 
 }
-funcion1(2)
+funcion1(9)
 
-//Tercer Algoritmo
+// Tercer Algoritmo
+
+// En este tercer algortimo se agrego una funcion que despues de haber efectuado
+// las operaciones correspondientes la funcion nos dara un resultado (return)
+// este debe de ser un valor entero (Int)
 def funcion2(n: Int): Int =
 {
 var a = 0
 var b = 1
 var c = 0
+// Se inicia un ciclo (for) donde k = 1, empezara a ciclar hasta llegar a ser (n)
+// (n) representa el valor que se ingresara en la funcion 
     for (k <- 1 to n)
     {
+// En funcion al ciclo (for) las variables (c,a,b) empezaran a cambiar su resultado
+// hasta haber terminado el ciclo (for)
         c = b + a
         a = b
         b = c
     }
+// El resultado sera retornado con (return)
     return(a)
 }
 funcion2(9)
 
-//Cuarto Algoritmo
+// Cuarto Algoritmo
+// En este cuarto algortimo se agrego una funcion que despues de haber efectuado
+// las operaciones correspondientes la funcion nos dara un resultado (return)
+// este debe de ser un valor entero (Int)
 def funcion3(n: Int): Int =
 {
     var a = 0
     var b = 1
+// Se inicia un ciclo (for) donde k = 1, empezara a ciclar hasta llegar a ser (n)
+// (n) representa el valor que se ingresara en la funcion 
     for(k <- 1 to n)
         {
 
             b = b + a
             a = b - a
+// En funcion al ciclo (for) las variables (b,a) empezaran a cambiar su resultado
+// hasta haber terminado el ciclo (for)
         }
+// El resultado sera retornado con (return)
         return(a)
 }
 funcion3(9)
 
-//Quinto Algoritmo
 
-//Sexto Algoritmo
+// Quinto Algoritmo
+
+// Sexto Algoritmo
 def funcion5 (n: Double): Double = 
 {
     if (n<=0)
