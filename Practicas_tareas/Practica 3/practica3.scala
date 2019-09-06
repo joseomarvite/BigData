@@ -98,12 +98,17 @@ funcion3(9)
 // Quinto Algoritmo
 
 // Sexto Algoritmo
+// En este sexto algortimo se agrego una funcion que despues de haber efectuado
+// las operaciones correspondientes la funcion nos dara un resultado (return)
+// este debe de ser un valor entero con puntos decimales (Double)
 def funcion5 (n: Double): Double = 
 {
+// Si el valor ingresado es menor o igual a 0, entonces ese valor se vera regresado
     if (n<=0)
     {
         return (n)
     }
+// En caso contrario se tendra que hacer una serie se operaciones
     else
     {
         var i: Double = n - 1
@@ -113,33 +118,38 @@ def funcion5 (n: Double): Double =
         var b: Double = auxOne
         var c: Double  = auxOne
         var d: Double  = auxTwo
-        var prime: Boolean = false
+// Empezara un ciclo (while) donde las variables empezaran a cambiar de valor 
+// en funcion a la iteracion del ciclo
         while (i > 0)
         {
-            if (prime == (n % 2 == 0))
+// Si la variable (i) es impar, se haran operaciones diferentes 
+            if (i % 2 == 1)
             {
-                if(prime == true)
-                {
-                    auxOne = (d*b) + (c*a)
-                    auxTwo = ((d+(b*a)) + (c*b))
-                    a = auxOne
-                    b = auxTwo  
-                }
-                else
-                {
-                    var pow1 = Math.pow(c,2)
-                    var pow2 = Math.pow(d,2)
-                    auxOne = pow1 + pow2
-                    auxTwo = (d*((2*(c)) + d))
-                    c = auxOne
-                    d = auxTwo 
-                }
+                auxOne = (d*b) + (c*a)
+                auxTwo = ((d+(b*a)) + (c*b))
+                a = auxOne
+                b = auxTwo
             }
+// Si la variable (i) es par, se haran operaciones diferentes 
+            else
+            {
+                var pow1 = Math.pow(c,2)
+                var pow2 = Math.pow(d,2)
+                auxOne = pow1 + pow2
+                auxTwo = (d*((2*(c)) + d))
+                c = auxOne
+                d = auxTwo
+            }
+// La variable (i) empezara a cambiar de valor cada vez que se itere el ciclo
+// hasta que salga del ciclo, y se regrese la suma de (a+b)
             i = (i / 2)   
         }
         return(a+b)
     }
 }
+
+
+
 
 
 
