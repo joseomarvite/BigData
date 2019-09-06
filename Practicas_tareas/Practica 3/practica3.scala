@@ -94,8 +94,34 @@ def funcion3(n: Int): Int =
 }
 funcion3(9)
 
-
 // Quinto Algoritmo
+// En este quinto algoritmo se realiza una funcion que pide un valor entero (Int)
+// para luego retornar un valor entero con decimales(Double) 
+def funcion4(n: Int): Double =
+{
+// Se crea un arreglo que empieza de 0 hasta (n+1)
+    val vector = Array.range(0,n+1)
+// Si la variable (n) es menor a 2, se regresa esa misma variable como resultado
+    if (n < 2)
+    {
+        return (n)
+    }
+// En caso contrario el vector con espacio (0) tendra un valor de cero(0)
+// y el vector con espacio (1) tendra valor de uno(1)
+    else
+    {
+        vector(0) = 0
+        vector(1) = 1
+// Se empieza a ciclar con un for el vector
+        for (k <- 2 to n)
+        {
+            vector(k) = vector(k-1) + vector(k-2)
+        } 
+// El resultado sera la variable (n) en funcion al vector establecido
+        return vector(n)
+    }
+}
+funcion4(9)
 
 // Sexto Algoritmo
 // En este sexto algortimo se agrego una funcion que despues de haber efectuado
