@@ -1,7 +1,7 @@
 val puntajes = Array(3,4,21,36,10,28,35,5,24,42)
 
 // Se agrego un funcion que recibira un arreglo de numeros enteros (Int)
-def breakingRecords(puntajes:Array[Int]):=
+def breakingRecords(puntajes:Array[Int]):Unit=
 {
      // Se agrego el puntaje, que sera el contador que se ira moviento en los espacios del arreglo
      var score = 0
@@ -33,7 +33,6 @@ def breakingRecords(puntajes:Array[Int]):=
           } 
      })
      // Las suma de los puntajes seran enviados a la pantalla
-     println(puntajeAlto + " " + puntajeMenor)
-     
+     println(puntajeAlto + " " + puntajeMenor)  
 }
-
+breakingRecords(puntajes)
