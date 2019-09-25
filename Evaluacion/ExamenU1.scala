@@ -1,5 +1,6 @@
 val puntajes = Array(3,4,21,36,10,28,35,5,24,42)
 
+
 // Se agrego un funcion que recibira un arreglo de numeros enteros (Int)
 def breakingRecords(puntajes:Array[Int]):Unit=
 {
