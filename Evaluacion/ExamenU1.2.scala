@@ -32,7 +32,7 @@ val df2 = df.withColumn("HV Ratio",df("High")/df("Volume"))
 df2.show()
 
 //9. ¿Cual es el significado de la columna Cerrar "Close"?
-// Respuesta: 
+// Respuesta: Es el cierre del mes
 
 //10. ¿Cual es el maximo y minimo de la columna "Volumen"?
 df.select(max("Volume")).show()
