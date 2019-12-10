@@ -58,6 +58,7 @@ Aquí hay algunas cosas a tener en cuenta:
 1.  El algoritmo se vuelve significamente más lento a medida que aumenta el número de ejemplos y/o predictores / variables independientes.
 
 **Código comentado** 
+
 ```scala
 // 1. Se importa la sesion en Spark
 // 4. Se importa la libreria de Kmeans para el algoritmo
@@ -159,7 +160,7 @@ metrics.accuracy
 
 **Practica 2**
 
-**Introducción** *
+**Introducción** 
 La siguiente práctica es el resultado de la exposición 2 impartida por mis compañeros en la unidad 2 de la materia de datos masivos.
 
 En este presente documento se deriva de la explicación de diferentes clases en el Instituto Tecnológico de Tijuana de la materia Minería de Datos lo cual pude desarrollar mis habilidades y aplicar mis conocimientos aprendidos durante el periodo
