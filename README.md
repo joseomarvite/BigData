@@ -569,6 +569,7 @@ val accuracy = evaluator.evaluate(predictions)
 println(s"Test Error = ${1 - accuracy}")
 ```
 **Practica 8**
+
 **Introducción**
 La siguiente práctica es el resultado de la exposición 8 impartida por mis compañeros en la unidad 2 de la materia de datos masivos.
 
