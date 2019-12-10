@@ -16,9 +16,11 @@
 **Examen 1**
 
 **Introducción**
+
 En el presente documento se podrá observar el conocimiento y procedimiento que se realizó en la 1ra evaluación de la unidad 3, el cual fue programado en el lenguaje Scala y se utilizaron librerías de Machine Learning de Spark en 4.4
 
 **Explicación**
+
 KNN es un método de clasificación supervisada (Aprendizaje, estimación basada en un conjunto de entrenamiento y prototipos)
 
 El algoritmo KNN asume que existen cosas similares en la proximidad. En otras palabras, cosas similares están cerca unas de otras, en otras palabras K-NN captura la idea de similitud (a veces llamada distancia, proximidad o cercanía).
@@ -26,6 +28,7 @@ El algoritmo KNN asume que existen cosas similares en la proximidad. En otras pa
 Existen muchas fórmulas para calcular la distancia, y una podría ser preferible dependiendo del problema que se esté resolviendo. Sin embargo, la distancia en línea recta (también llamada distancia euclidiana) es una opción popular y familiar.
 
 **Algoritmo de KNN**
+
 1.  Cargar los datos.
 2.  Inicializa K a tu número elegido de vecinos.
 3.  Para cada ejemplo en los datos.
@@ -49,6 +52,7 @@ Aquí hay algunas cosas a tener en cuenta:
 -   En los casos en que estamos tomando un voto mayoritario (por ejemplo, seleccionando el modo en un problema de clasificación) entre las etiquetas, generalmente hacemos de K un número impar para tener un desempate.
     
  **Ventajas**
+
 1.  El algoritmo es simple y fácil de implementar.
 2.  No hay necesidad de construir un modelo, ajustar varios parámetros o hacer suposiciones adicionales.
 3.  El algoritmo es versátil, puede usarse para clasificación, regresión y búsqueda.
@@ -95,9 +99,11 @@ model.clusterCenters.foreach(println)
 **Practica 1**
 
 **Introducción**
+
 En este presente documento se deriva de la explicación de diferentes clases en el Instituto Tecnológico de Tijuana de la materia Minería de Datos lo cual pude desarrollar mis habilidades y aplicar mis conocimientos aprendidos durante el periodo
 
 **Explicación**
+
 La regresión logística resulta útil para los casos en los que se desea predecir la presencia o ausencia de una característica o resultado según los valores de un conjunto de predictores. Es similar a un modelo de regresión lineal pero está adaptado para modelos en los que la variable dependiente es dicotómica. Los coeficientes de regresión logística pueden utilizarse para estimar la odds ratio de cada variable independiente del modelo. La regresión logística se puede aplicar a un rango más amplio de situaciones de investigación que el análisis discriminante.
 
   
@@ -114,6 +120,7 @@ Regresión logística: Consideraciones sobre los datos
 Datos. La variable dependiente debe ser dicotómica. Las variables independientes pueden estar a nivel de intervalo o ser categóricas; si son categóricas, deben ser variables auxiliares o estar codificadas como indicadores (existe una opción en el procedimiento para codificar automáticamente las variables categóricas).
 
 **Código comentado** 
+
 ```scala
 //Importamos librerias necesarias con las que vamos a trabajar
 import org.apache.spark.ml.feature.{VectorAssembler, StringIndexer, VectorIndexer, OneHotEncoder}
@@ -161,6 +168,7 @@ metrics.accuracy
 **Practica 2**
 
 **Introducción** 
+
 La siguiente práctica es el resultado de la exposición 2 impartida por mis compañeros en la unidad 2 de la materia de datos masivos.
 
 En este presente documento se deriva de la explicación de diferentes clases en el Instituto Tecnológico de Tijuana de la materia Minería de Datos lo cual pude desarrollar mis habilidades y aplicar mis conocimientos aprendidos durante el periodo
@@ -230,6 +238,7 @@ Ejemplo de de movimiento de centroides:
 ![](https://lh6.googleusercontent.com/pfMiXoGqUH9dQ0DPZv0jqIGI-63MtaeEgNaST0q_OsdcRAYc00HsREMlM8OSj2seeOrX62azsL8vR3Wiv0zAeQfaYuJvM8gymjuO8MKVy9aeClCsZA71fTM3LvOR9FJfVR-1tsJ0)
 
 **Código comentado**
+
 ```scala
 // Se importan las librerias necesarias para el trabajo de Kmeans
 // Se crea un sesion en Spark
