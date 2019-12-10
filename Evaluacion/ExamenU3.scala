@@ -1,13 +1,12 @@
+ 
 // 1. Se importa la sesion en Spark
-import org.apache.spark.sql.SparkSession
 // 4. Se importa la libreria de Kmeans para el algoritmo
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.clustering.KMeans
+import org.apache.spark.ml.feature.{VectorAssembler,StringIndexer,VectorIndexer,OneHotEncoder}
 // 7. Se importa Vector Assembler para el manejo de datos
-import org.apache.spark.ml.feature
-{VectorAssembler,StringIndexer,VectorIndexer,OneHotEncoder}
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.log4j._
-
 // 2. Se minimizan los errores 
 Logger.getLogger("org").setLevel(Level.ERROR)
 
@@ -18,7 +17,7 @@ val dataset = spark.read.option("header","true").option("inferSchema","true").cs
 
 // 6. Seleccionamos las columnas que seran los datos "feature"
 val feature_data = dataset.select($"Fresh", $"Milk", $"Grocery", $"Frozen", $"Detergents_Paper", $"Delicassen")
-// 8. Se crea un nuevo objeto para las columnas de caractersiticas 
+// 8. Se crea un nuevo objeto para las columnas de caractersiticas
 val assembler = new VectorAssembler().setInputCols(Array("Fresh", "Milk", "Grocery", "Frozen", "Detergents_Paper", "Delicassen")).setOutputCol("features")
 
 // 9. Se utiliza el objetivo "assembler" para transformar "feature_data"
@@ -29,6 +28,6 @@ val model = kmeans.fit(traning)
 // Evaluamos el cluster calculando en los errores cuadraticos
 val WSSSE = model.computeCost(traning)
 println(s"Within Set Sum of Squared Errors = $WSSSE")
-// Resultado
+//Resultado
 println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
