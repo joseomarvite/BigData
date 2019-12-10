@@ -13,13 +13,15 @@
  - **Docente**: Dr. Jose Christian Romero Hernandez
 
 # Evaluación 
-**[Examen 1](https://github.com/joseomarvite/BigData/blob/Unidad_1/Evaluacion/ExamenU1.scala)** - Ejercicio de puntajes de un estudiante 
-**[Examen 1.2](https://github.com/joseomarvite/BigData/blob/Unidad_1/Evaluacion/ExamenU1.2.scala)** - Funciones básicas de dataframes 
+**[Examen 1](https://github.com/joseomarvite/BigData/blob/Unidad_1/Evaluacion/ExamenU1.scala)**
+
+ - Ejercicio de puntajes de un estudiante
+
+**[Examen 1.2](https://github.com/joseomarvite/BigData/blob/Unidad_1/Evaluacion/ExamenU1.2.scala)** 
+ - Funciones básicas de dataframes
 
 # Practicas
 [**Practica 1**](https://github.com/joseomarvite/BigData/blob/Unidad_1/Practicas_tareas/Practica%201/practica1.scala) 
-Ejercicios:
-
  1. Desarrollar un algoritmo en scala que calcule el radio de un
     circulo.
  2. Desarrollar un algoritmo en scala que me diga si un numero es primo.
