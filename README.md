@@ -111,10 +111,157 @@ El número de nodos N en la capa de salida corresponde al número de clases.MLPC
 
 **Implementación**
 
+
 Para su implementación se utilizó el lenguaje Scala con la librerías de Spark en su versión 2.4.4 y se utilizaron los datos del dataset “bank-full” en formato “.csv”, los cuales pueden ser consultados en la siguiente dirección:
 
 [https://github.com/joseomarvite/BigData/tree/Unidad_4/Evaluacion](https://github.com/joseomarvite/BigData/tree/Unidad_4/Evaluacion)
 
+  
+
+Spark, permite trabajar con Scala, que es una forma abreviada de SCalable LAnguage, se originó en 'École Polytechnique Fédérale de Lausanne' (EPFL), Suiza, en 2003, con el objetivo de lograr un lenguaje de alto rendimiento y altamente concurrente que combine la fuerza de los siguientes dos patrones de programación líderes en la plataforma Java Virtual Machine (JVM): [6]
+
+  
+
+• Programación orientada a objetos
+
+• programación funcional
+
+  
+
+API muy diferentes, pero algoritmos similares. Estas bibliotecas de aprendizaje automático heredan muchas de las consideraciones de rendimiento de las API RDD y Dataset en las que se basan, pero también tienen sus propias consideraciones. MLlib es la primera de las dos bibliotecas y está entrando en un modo de solo mantenimiento / corrección de errores.
+
+  
+
+Conjunto de datos
+
+  
+
+Los datos están relacionados con campañas de marketing directo de una institución bancaria portuguesa. Las campañas de marketing se basaron en llamadas telefónicas. A menudo, se requería más de un contacto con el mismo cliente para acceder si el producto (deposito bancario a plazo) estaría ('sí') o no ('no') suscrito.
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+Tomamos todos los ejemplos (41188) y 11 entradas, ordenadas por fecha (de Mayo de 2008 a noviembre de 2010).
+
+De los datos a trabajar, usamos dos categorías de la información proveída y tomamos los siguientes:
+
+  
+
+1.  Información bancaria del cliente
+    
+2.  age números
+    
+3.  job: valores categóricos convertidos a números
+    
+4.  marital: estado civil categórico convertido a números
+    
+5.  education: nivel de estudios categóricos convertido a números
+    
+6.  default: si cuenta con algún tipo de crédito, datos categóricos convertidos a números
+    
+7.  housing: si renta casa, numérico
+    
+8.  loan: si tiene algún crédito personal, numérico
+    
+
+  
+
+Información del cliente relacionada a la campaña actual y el último contacto
+
+  
+
+campaign: cuantas veces se ha contactado al cliente para la campaña actual
+
+days: cuántos días han pasado desde el último contacto de la campaña
+
+previous: cuantas veces se ha contactado al cliente anteriormente
+
+outcome: cómo han sido los contactos anteriores.
+
+  
+
+Decision Tree
+
+  
+
+Implementar el algoritmo Decision Tree en Spark con Scala primero necesitamos importar las librerías o paquetes que contienen las funciones necesarias para utilizar este algoritmo.
+
+El algoritmo necesita las características que se van a procesar para poder generar una predicción así que generamos un VectorAssembler que su funciones tomar conjuntos de datos y crear un vector que contenga los datos que a su vez es agregado a una nueva columna llamada features. Al final se transforma el vector generado con el dataframe creado.
+
+  
+
+Este algoritmo necesita tener indexados los datos antes de su procesamiento así que se genera un StringIndexer para transformar los label de tipo string a numérico y se ajustan a los datos indexados de igual forma se crea un vector indexer.
+
+  
+
+Se declara un arreglo, que contiene el 70% de los datos que será utilizado para entrenamiento y el 30% restante se utilizará para datos de pruebas. Después se declara la función de Decision Tree con las columnas label y features.
+
+  
+
+Se indexa la columna prediction con las etiquetas indexadas. Se crea una pipeline con las labels indexadas ,features indexadas, la instancia del algoritmo y la prediction indexada. Se genera un modelo con los datos de entrenamiento procesados.
+
+  
+
+Una vez que el modelo esté procesado con los datos de entrenamiento se generan las predicciones con los datos de prueba. Se imprimen 5 predicciones con sus label y features.
+
+La variable evaluator guarda la precisión de las predicciones creadas y después se imprime la precisión que tuvo este algoritmo y muestra el error obtenido.
+
+La variable treeModel muestra de forma gráfica los árboles de decisión creados a partir de los datos de prueba.
+
+  
+
+Multilayer Perceptron Classifier
+
+Implementar el algoritmo Multilayer Perceptron Classifier en Spark con Scala primero necesitamos importar las librerías o paquetes que contienen las funciones necesarias para utilizar este algoritmo.
+
+  
+
+La primera línea importa un reductor de errores y la tercera línea declara una Sesión de Spark.
+
+  
+  
+
+El algoritmo necesita las características que se van a procesar para poder generar una predicción así que generamos un VectorAssembler que su funciones tomar conjuntos de datos y crear un vector que contenga los datos que a su vez es agregado a una nueva columna llamada features. Al final se transforma el vector generado con el dataframe creado. Se renombra la columna Y con el nombre label, se genera un nuevo conjunto de datos seleccionado las columnas label y features.
+
+  
+
+Se declara un arreglo que contiene el 70% de los datos que será utilizado para entrenamiento y el 30% restante se utilizará para datos de pruebas tomados de los datos indexados aleatoriamente.
+
+Se genera la configuración de las layers del algoritmo y se inicializa el trainer del MLPC agregando la configuración de las layers y el máximo de iteraciones.
+
+  
+
+Se procesa el modelo con los datos de entrenamiento y después se guardan los resultados utilizando los datos de pruebas que a su vez generan las predicciones. Se inicializa el evaluator que estima la precisión que se tuvo con este algoritmo utilizando el data frame creado con los datos indexados.
+
+  
+
+Logistic Regression
+
+  
+
+Implementar el algoritmo Logistic Regression en Spark con Scala primero necesitamos importar las librerías o paquetes que contienen las funciones necesarias para utilizar este algoritmo.
+
+El algoritmo necesita las características que se van a procesar para poder generar una predicción así que generamos un VectorAssembler que su funciones tomar conjuntos de datos y crear un vector que contenga los datos que a su vez es agregado a una nueva columna llamada features. Al final se transforma el vector generado con el dataframe creado. Se renombra la columna Y con el nombre label, se genera un nuevo conjunto de datos seleccionado las columnas label y features.
+
+  
+
+Se declara un arreglo que contiene el 70% de los datos que será utilizado para entrenamiento y el 30% restante se utilizará para datos de pruebas tomados de los datos indexados aleatoriamente.
+
+  
+
+Se genera inicializa el modelo de Logistic Regression con el máximo de iteraciones.
+
+Se procesa el modelo con los datos de entrenamiento y después se guardan los resultados utilizando los datos de pruebas que a su vez generan las predicciones. Se inicializa el evaluator que estima la precisión que se tuvo con este algoritmo utilizando el data frame creado con los datos indexados.
+
+Se imprime la matriz de confusión generada a partir de las predicciones.
 **Códigos**
 
 **Arbol de decision**
@@ -301,36 +448,8 @@ println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
 
 **Resultados**
 
-  
-
-**Arbol de decision**
-
-![](https://lh4.googleusercontent.com/Czv8qadZ5O31ApoQyVmKqbn_7NsPmCeaU2Om7fQ6a8XV1L-D3X-EF19mBjTxqF5rxBRv_OqoGPI3bMUP-QYIMsybRtUtS5ZIYxAyFAkVotarsZovBhJIfnnqPi4LMb5UqoRmS6ST)
-
-  
-
-![](https://lh5.googleusercontent.com/xKEemY3tSyuCIXPQi8mYNmuQmdaXEdujbZNn8qi1Wk5v758xtGdlRxi3yMYyyi73oYVwTKqZhLV7rbfA8PQUWzAD5GApea8qX1QtP_z-5Qg76mjuPyJmqkjZrxFRI9E7CN_gsoEK)
-
-![](https://lh3.googleusercontent.com/GNf7kk7bK_G8_peOEgNGKsYPeH1iitWbQiRglF6G_gPcxrPYmnbLs2EPwwDScginFBdbTSny4NR3m9-Sumv3TKTbNTkY7dwul6QvMgL00ssjOP7rvpWgRwzeTqsWlL6wDchQHPxe)
-
-  
-  
-  
-  
-  
-  
-
-**Regresión logística**
-
-  
-
-![](https://lh5.googleusercontent.com/Bo26HdyKg2lb75mdgVAIOrzmH6fsUVX6Qul1CzwH80GXlhcySAuJ5Q8vN0mlrp5Vow5x21OHLoKTIqZm_kdFfA_RlNl4I0qex_XOlxE3i0v5kozw6LDBq3Y5XwHFX1R5y1G94SFE)
-
-  
-
-**Perceptrón multicapa**
-
-![](https://lh5.googleusercontent.com/gh_U4EAQXsHz7f9mqgSDRRq17i2YXAaJu8JJNZsZDgPOUaXhWHUKiCAlFkolrQ-uNnPRzkrI9NKwv2bJjyocxH95ECAF9VGl6Z9HpkJuVkv8hf9MBcJ6fV84ruQFeTFXcUeoxWPk)
+**![](https://lh6.googleusercontent.com/J0lY9DUKc9rfTtpDDgh9T0jMwAlPQhOu1MQ7eX5Nm5ooLIlp1m-eRr3czfVUW-iIIRK8vGjAm1PIATgxgJ4ut24FGuk8t4YPaPe2a2KhaZS-iE7T5HpHF8sz2xiImEFOdsmLk43X)**
+**![](https://lh5.googleusercontent.com/FKKvKDbEDVbp-BAHTzoBiElsC1DX3HZg-VMrw9AiR8sZJ1s1peMGeGAw6Of7oaIzt31a_SU8eSXr7iZX_Dp-p_oEsS1Snv6uNHaoFGaxHCI0RYESyFKCtzOukwJU0edN-2L-iW-P)**
 
 **Conclusión**
 
